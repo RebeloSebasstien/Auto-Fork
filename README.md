@@ -26,7 +26,7 @@
 1. Run the script:
 
     ```bash
-    python script.py
+    python main.py
     ```
 
 2. Log in with your GitHub username and personal access token. The credentials will be saved for future use.
