@@ -52,13 +52,13 @@ def login():
             print(f"{Fore.RED}Invalid credentials. Please try again.")
             time.sleep(2)
 
-def search(keywords, token):
+def search(keywords, token, pages):
     headers = {
         "Authorization": f"token {token}",
     }
     params = {
         "q": keywords,
-        "per_page": 50,  # Number of repositories per page
+        "per_page": pages,  # Number of repositories per page
         "sort": "stars",
         "order": "desc",
     }
@@ -95,9 +95,10 @@ def main():
 
         if choice == "1":
             keywords = input(f"{Fore.CYAN}Search: {Style.RESET_ALL}")
+            pages = input(f"{Fore.CYAN}How many repositories: {Style.RESET_ALL}")
 
-            print(f"{Fore.BLUE}Searching for repositories...")
-            repositories = search(keywords, token)
+            print(f"{Fore.BLUE}Searching...")
+            repositories = search(keywords, token, pages)
 
             if not repositories:
                 print(f"{Fore.RED}No repositories found.")
